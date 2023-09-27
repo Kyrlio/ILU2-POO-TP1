@@ -8,7 +8,7 @@ public class Etal {
 	private int quantiteDebutMarche;
 	private int quantite;
 	private boolean etalOccupe = false;
-
+	
 	public boolean isEtalOccupe() {
 		return etalOccupe;
 	}
@@ -77,5 +77,18 @@ public class Etal {
 	public boolean contientProduit(String produit) {
 		return this.produit.equals(produit);
 	}
+	
+	public class Marche{
+		private Etal[] etals;
+		
+		public Marche(int nombreEtals) {
+			this.etals = new Etal[nombreEtals];
+			for (int i = 0 ; i < nombreEtals ; i++) {
+				this.etals[i] = new Etal();
+			}
+		}
+		
+	}
+
 
 }
