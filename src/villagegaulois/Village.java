@@ -68,13 +68,50 @@ public class Village {
 		}
 		
 		private void utiliserEtal(int indiceEtal, Gaulois vendeur, String produit, int nbProduit) {
-			if(indiceEtal < 0 || indiceEtal >= etals.length) {
+			if (indiceEtal < 0 || indiceEtal >= etals.length) {
 				System.out.println("L'indice d'étal est invalide !");
-				return;
+			} else if (etals[indiceEtal].isEtalOccupe()) {
+				System.out.println("L'étal " + indiceEtal + "est déjà occupé par : " + etals[indiceEtal].getVendeur().getNom() + " !");
+			} else {
+				System.out.println("Le vendeur " + vendeur.getNom() + " s'installe dans l'étal " + indiceEtal);
+				etals[indiceEtal].occuperEtal(vendeur, produit, nbProduit);
+			}
+		}
+		
+		private int trouverEtalLibre() {
+			for (int i = 0 ; i < etals.length ; i++) {
+				// Si l'étal est libre
+				if (!etals[i].isEtalOccupe()) {
+					return i;
+				}
+			}
+			// Aucun étal libre trouvé
+			return -1;
+		}
+		
+		private Etal[] trouverEtals(String produit) {
+			int nombreEtalsTrouves = 0;
+			Etal[] etalsTrouves = new Etal[nombreEtalsTrouves];
+			
+			for (int i = 0 ; i < etals.length ; i++) {
+				if (etals[i].isEtalOccupe() && etals[i].contientProduit(produit)) {
+					// étal trouvé
+					nombreEtalsTrouves++;
+					etalsTrouves[nombreEtalsTrouves] = etals[i];
+				}
 			}
 			
+			return etalsTrouves;
+		}
+		
+		private Etal trouverVendeur(Gaulois gaulois) {
+			for (int i = 0 ; i < etals.length ; i++) {
+				if (etals[i].isEtalOccupe() && etals[i].getVendeur().equals(gaulois)) {
+					return etals[i];
+				}
+			}
 			
-			
+			return null;
 		}
 		
 		
