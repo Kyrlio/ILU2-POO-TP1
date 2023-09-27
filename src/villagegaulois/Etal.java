@@ -77,18 +77,7 @@ public class Etal {
 	public boolean contientProduit(String produit) {
 		return this.produit.equals(produit);
 	}
-	
-	public class Marche{
-		private Etal[] etals;
-		
-		public Marche(int nombreEtals) {
-			this.etals = new Etal[nombreEtals];
-			for (int i = 0 ; i < nombreEtals ; i++) {
-				this.etals[i] = new Etal();
-			}
-		}
-		
-	}
+
 
 
 }
