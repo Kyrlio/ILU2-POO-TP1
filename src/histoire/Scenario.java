@@ -9,6 +9,7 @@ import villagegaulois.Village;
 public class Scenario {
 
 	public static void main(String[] args) {
+		//test github
 //		Village village = new Village("le village des irréductibles", 10, 5);
 //		Chef abraracourcix = new Chef("Abraracourcix", 10, village);
 //		village.setChef(abraracourcix);
@@ -39,6 +40,7 @@ public class Scenario {
 //		System.out.println(etalFleur.acheterProduit(15, assurancetourix));
 //		System.out.println(village.partirVendeur(bonemine));
 //		System.out.println(village.afficherMarche());
+		
 	}
 
 }
